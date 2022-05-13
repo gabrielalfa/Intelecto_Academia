@@ -1,0 +1,857 @@
+﻿@model Intelecto_Academia.Models.Jogos
+@{
+    ViewBag.Title = "Chaves";
+}
+
+
+
+<script>
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+    }
+</script>
+
+
+
+
+<!-- begin #content -->
+<div id="content" class="content">
+    <!-- begin breadcrumb -->
+    <ol class="breadcrumb pull-right">
+        <li><a href="javascript:;">Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+    <!-- end breadcrumb -->
+    <!-- begin page-header -->
+    <h1 class="page-header">Dashboard <small>header small text goes here...</small></h1>
+    <!-- end page-header -->
+    <!-- begin row -->
+    <div class="row">
+        <!-- begin col-3 -->
+        <div class="col-md-12">
+            <div class="hidden-md hidden-sm hidden-xs">
+
+               
+
+
+                <div class="row-fluid">
+                    <div class="container">
+
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs nav-tabs-ar">
+                            <li class="active">
+                                <a href="#1" data-toggle="tab">
+                                    <p>Parte 1</p>
+                                    <img src="~/Content/Icones_Chaves/Chave_completa.png" class="img-responsive" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#2" data-toggle="tab">
+                                    <p>Parte 2</p>
+                                    <img src="~/Content/Icones_Chaves/Chave_completa.png" class="img-responsive" />
+                                </a>
+                            </li>
+
+                        </ul>
+
+
+                        <div class="tab-content">
+                            <div class="table-responsive tab-pane active" id="1">
+
+                                <hr />
+
+                                <fieldset>
+
+                                    <legend>Chaves 4ª Classe 2ª Parte 1</legend>
+
+                                    <div class="col-lg-4">
+
+                                        @for (int i = 1; i < 9; i++)
+                                        {
+                                            <table class="table table-condensed ">
+                                                @if (i == 1)
+                                                {
+                                                    <thead>
+                                                        <tr>
+                                                            <th colspan="5">Oitavas de Final</th>
+                                                            <th style="background-color:#0094ff; color:#ffffff"></th>
+                                                        </tr>
+                                                    </thead>
+                                                }
+                                            </table>
+
+                                            <table class="table table-bordered table-striped table-hover note-handle">
+
+                                                <tr class="rounded  ">
+                                                    <th ondrop="drop(event)" ondragover="allowDrop(event)" colspan="2"></th>
+                                                    <th style=" ">6</th>
+                                                    <th style=" ">3</th>
+                                                    <th style=" ">8</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>12/06/2015 <b>18:30</b><a id="modal-25419" href="#modal-container-25419" role="button" data-toggle="modal"><i class="fa fa-2x fa-edit pull-right"></i></a></td>
+                                                    <td colspan="4">Oitavas @i</td>
+                                                </tr>
+                                                <tr class="rounded  ">
+                                                    <th ondrop="drop(event)" ondragover="allowDrop(event)" colspan="2"></th>
+                                                    <th style=" ">2</th>
+                                                    <th style=" ">6</th>
+                                                    <th style=" ">10</th>
+                                                </tr>
+                                            </table>
+                                        }
+
+                                    </div>
+
+                                    <div class="col-lg-4">
+
+                                        @for (int i = 1; i < 5; i++)
+                                        {
+                                            <table class="table table-condensed">
+                                                @if (i == 1)
+                                                {
+                                                    <thead>
+                                                        <tr>
+                                                            <th colspan="5">Quartas de Final</th>
+                                                            <th style="background-color:#ff6a00; color:#ffffff"></th>
+                                                        </tr>
+                                                    </thead>
+                                                }
+                                            </table>
+
+                                            <table class="table table-bordered table-hover table-striped" style="margin-top:42%">
+
+
+                                                <tr class="rounded  ">
+                                                    <th colspan="2">Jogador A</th>
+                                                    <th>6</th>
+                                                    <th>3</th>
+                                                    <th>8</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>12/06/2015 <b>18:30</b><a id="modal-25419" href="#modal-container-25419" role="button" data-toggle="modal"><i class="fa fa-2x fa-edit pull-right"></i></a></td>
+                                                    <td colspan="4">Quartas - @i</td>
+                                                </tr>
+                                                <tr class="rounded  ">
+                                                    <th colspan="2">Jogador B</th>
+                                                    <th>6</th>
+                                                    <th>3</th>
+                                                    <th>8</th>
+                                                </tr>
+                                            </table>
+                                        }
+                                    </div>
+
+
+                                    <div class="col-lg-4">
+                                        <table class="table table-condensed ">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="5">Semi-Final</th>
+                                                    <th style="background-color:#b6ff00; color:#ffffff"></th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+
+
+
+                                        <table class="table table-bordered table-striped table-hover" style="margin-top:65%">
+
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="4">Semi-Final</th>
+                                                    <th style="background-color:#b6ff00; color:#ffffff"></th>
+                                                </tr>
+                                            </thead>
+
+                                            <tr class="rounded  ">
+                                                <th colspan="2">Jogador A</th>
+                                                <th>6</th>
+                                                <th>3</th>
+                                                <th>8</th>
+                                            </tr>
+                                            <tr>
+                                                <td>12/06/2015 <b>18:30</b><a id="modal-25419" href="#modal-container-25419" role="button" data-toggle="modal"><i class="fa fa-2x fa-edit pull-right"></i></a></td>
+                                                <td colspan="4">Semi-Final - 1</td>
+                                            </tr>
+                                            <tr class="rounded  ">
+                                                <th colspan="2">Jogador B</th>
+                                                <th>6</th>
+                                                <th>3</th>
+                                                <th>8</th>
+                                            </tr>
+                                        </table>
+
+                                        <table class="table table-condensed " style="margin-top:40%">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="5">Jogo Final</th>
+                                                    <th style="background-color:#0094ff; color:#ffffff"></th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+
+                                        <table class=" table table-bordered table-striped table-hover" style="margin-top:10%">
+
+
+                                            <tr class="rounded  ">
+                                                <th colspan="2">Jogador A</th>
+                                                <th>6</th>
+                                                <th>3</th>
+                                                <th>8</th>
+                                            </tr>
+                                            <tr>
+                                                <td>12/06/2015 <b>18:30</b><a id="modal-25419" href="#modal-container-25419" role="button" data-toggle="modal"><i class="fa fa-2x fa-edit pull-right"></i></a></td>
+                                                <td colspan="4"><b>Jogo Final</b></td>
+                                            </tr>
+                                            <tr class="rounded  ">
+                                                <th colspan="2">Jogador B</th>
+                                                <th>6</th>
+                                                <th>3</th>
+                                                <th>8</th>
+                                            </tr>
+                                        </table>
+
+
+
+                                        <table class="table table-bordered table-striped table-hover" style="margin-top:40%">
+
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="4">Semi-Final</th>
+                                                    <th style="background-color:#b6ff00; color:#ffffff"></th>
+                                                </tr>
+                                            </thead>
+                                            <tr class="rounded  " style="">
+                                                <th colspan="2">Jogador A</th>
+                                                <th>6</th>
+                                                <th>3</th>
+                                                <th>8</th>
+                                            </tr>
+                                            <tr>
+                                                <td>12/06/2015 <b>18:30</b><a id="modal-25419" href="#modal-container-25419" role="button" data-toggle="modal"><i class="fa fa-2x fa-edit pull-right"></i></a></td>
+                                                <td colspan="4">Semi-Final - 2</td>
+                                            </tr>
+                                            <tr class="rounded  " style="">
+                                                <th colspan="2">Jogador B</th>
+                                                <th>6</th>
+                                                <th>3</th>
+                                                <th>8</th>
+                                            </tr>
+                                        </table>
+
+
+
+                                    </div>
+
+
+                                </fieldset>
+                            </div>
+
+
+                            <div class="table-responsive tab-pane" id="2">
+
+                                <hr />
+
+                                <fieldset>
+
+                                    <legend>Chaves 4ª Classe 2ª Parte 1</legend>
+
+                                    <div class="col-lg-4">
+
+                                        @for (int i = 1; i < 9; i++)
+                                        {
+                                            <table class="table table-condensed ">
+                                                @if (i == 1)
+                                                {
+                                                    <thead>
+                                                        <tr>
+                                                            <th colspan="5">Oitavas de Final</th>
+                                                            <th style="background-color:#0094ff; color:#ffffff"></th>
+                                                        </tr>
+                                                    </thead>
+                                                }
+                                            </table>
+
+                                            <table class="table table-bordered table-striped table-hover note-handle" style="box-shadow: 5px 5px 5px #888888;">
+
+                                                <tr class="rounded  ">
+                                                    <th colspan="2">Gabriel Seben</th>
+                                                    <th style=" ">6</th>
+                                                    <th style=" ">3</th>
+                                                    <th style=" ">8</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>12/06/2015 <b>18:30</b><a id="modal-25419" href="#modal-container-25419" role="button" data-toggle="modal"><i class="fa fa-2x fa-edit pull-right"></i></a></td>
+                                                    <td colspan="4">Oitavas @i</td>
+                                                </tr>
+                                                <tr class="rounded  ">
+                                                    <th colspan="2">Gabriel Seben</th>
+                                                    <th style=" ">2</th>
+                                                    <th style=" ">6</th>
+                                                    <th style=" ">10</th>
+                                                </tr>
+                                            </table>
+                                        }
+
+                                    </div>
+
+                                    <div class="col-lg-4">
+
+                                        @for (int i = 1; i < 5; i++)
+                                        {
+                                            <table class="table table-condensed">
+                                                @if (i == 1)
+                                                {
+                                                    <thead>
+                                                        <tr>
+                                                            <th colspan="5">Quartas de Final</th>
+                                                            <th style="background-color:#ff6a00; color:#ffffff"></th>
+                                                        </tr>
+                                                    </thead>
+                                                }
+                                            </table>
+
+                                            <table class="table table-bordered table-hover table-striped" style="margin-top:42%;box-shadow: 5px 5px 5px #888888;">
+
+
+                                                <tr class="rounded  ">
+                                                    <th colspan="2">Jogador A</th>
+                                                    <th>6</th>
+                                                    <th>3</th>
+                                                    <th>8</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>12/06/2015 <b>18:30</b><a id="modal-25419" href="#modal-container-25419" role="button" data-toggle="modal"><i class="fa fa-2x fa-edit pull-right"></i></a></td>
+                                                    <td colspan="4">Quartas - @i</td>
+                                                </tr>
+                                                <tr class="rounded  ">
+                                                    <th colspan="2">Jogador B</th>
+                                                    <th>6</th>
+                                                    <th>3</th>
+                                                    <th>8</th>
+                                                </tr>
+                                            </table>
+                                        }
+                                    </div>
+
+
+                                    <div class="col-lg-4">
+                                        <table class="table table-condensed ">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="5">Semi-Final</th>
+                                                    <th style="background-color:#b6ff00; color:#ffffff"></th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+
+
+
+                                        <table class="table table-bordered table-striped table-hover" style="margin-top:65%;box-shadow: 5px 5px 5px #888888;">
+
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="4">Semi-Final</th>
+                                                    <th style="background-color:#b6ff00; color:#ffffff"></th>
+                                                </tr>
+                                            </thead>
+
+                                            <tr class="rounded  ">
+                                                <th colspan="2">Jogador A</th>
+                                                <th>6</th>
+                                                <th>3</th>
+                                                <th>8</th>
+                                            </tr>
+                                            <tr>
+                                                <td>12/06/2015 <b>18:30</b><a id="modal-25419" href="#modal-container-25419" role="button" data-toggle="modal"><i class="fa fa-2x fa-edit pull-right"></i></a></td>
+                                                <td colspan="4">Semi-Final - 1</td>
+                                            </tr>
+                                            <tr class="rounded  ">
+                                                <th colspan="2">Jogador B</th>
+                                                <th>6</th>
+                                                <th>3</th>
+                                                <th>8</th>
+                                            </tr>
+                                        </table>
+
+                                        <table class="table table-condensed " style="margin-top:40%;box-shadow: 5px 5px 5px #888888;">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="5">Jogo Final</th>
+                                                    <th style="background-color:#0094ff; color:#ffffff"></th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+
+                                        <table class=" table table-bordered table-striped table-hover" style="margin-top:10%;box-shadow: 5px 5px 5px #888888;">
+
+                                            <tr class="rounded  ">
+                                                <th colspan="2">Jogador A</th>
+                                                <th>6</th>
+                                                <th>3</th>
+                                                <th>8</th>
+                                            </tr>
+                                            <tr>
+                                                <td>12/06/2015 <b>18:30</b><a id="modal-25419" href="#modal-container-25419" role="button" data-toggle="modal"><i class="fa fa-2x fa-edit pull-right"></i></a></td>
+                                                <td colspan="4"><b>Jogo Final</b></td>
+                                            </tr>
+                                            <tr class="rounded  ">
+                                                <th colspan="2">Jogador B</th>
+                                                <th>6</th>
+                                                <th>3</th>
+                                                <th>8</th>
+                                            </tr>
+                                        </table>
+
+
+
+                                        <table class="table table-bordered table-striped table-hover" style="margin-top:40%;box-shadow: 5px 5px 5px #888888;">
+
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="4">Semi-Final</th>
+                                                    <th style="background-color:#b6ff00; color:#ffffff"></th>
+                                                </tr>
+                                            </thead>
+                                            <tr class="rounded  " style="">
+                                                <th colspan="2">Jogador A</th>
+                                                <th>6</th>
+                                                <th>3</th>
+                                                <th>8</th>
+                                            </tr>
+                                            <tr>
+                                                <td>12/06/2015 <b>18:30</b><a id="modal-25419" href="#modal-container-25419" role="button" data-toggle="modal"><i class="fa fa-2x fa-edit pull-right"></i></a></td>
+                                                <td colspan="4">Semi-Final - 2</td>
+                                            </tr>
+                                            <tr class="rounded  " style="">
+                                                <th colspan="2">Jogador B</th>
+                                                <th>6</th>
+                                                <th>3</th>
+                                                <th>8</th>
+                                            </tr>
+                                        </table>
+
+
+
+                                    </div>
+
+
+                                </fieldset>
+
+                            </div>
+
+                            <div class="table-responsive tab-pane" id="3">
+
+                                <hr />
+
+                                <fieldset>
+
+                                    <legend>Chaves 4ª Classe 3ª Parte</legend>
+
+                                    <div class="col-lg-4">
+
+                                        @for (int i = 1; i < 9; i++)
+                                        {
+
+
+                                            <table class="table table-bordered ">
+                                                @if (i == 1)
+                                                {
+                                                    <thead>
+                                                        <tr>
+                                                            <th colspan="5" style="background-color:#0094ff;color:#ffffff ">Oitavas de Final</th>
+                                                        </tr>
+                                                    </thead>
+                                                }
+                                                <tr class="rounded  ">
+                                                    <th colspan="2">Gabriel Seben</th>
+                                                    <th>6</th>
+                                                    <th>3</th>
+                                                    <th>8</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>12/06/2015 <b>18:30</b><a id="modal-25419" href="#modal-container-25419" role="button" data-toggle="modal"><i class="fa fa-2x fa-edit pull-right"></i></a></td>
+                                                    <td colspan="4">Oitavas @i</td>
+                                                </tr>
+                                                <tr class="rounded  ">
+                                                    <th colspan="2">Gabriel Seben</th>
+                                                    <th>2</th>
+                                                    <th>6</th>
+                                                    <th>10</th>
+                                                </tr>
+                                            </table>
+                                        }
+
+                                    </div>
+
+                                    <div class="col-lg-4">
+
+                                        @for (int i = 1; i < 5; i++)
+                                        {
+                                            <table class="table table-bordered" style="margin-top:35%">
+                                                @if (i == 1)
+                                                {
+                                                    <thead>
+                                                        <tr>
+                                                            <th colspan="5" style="background-color:#00ffff; ">Quartas de Final</th>
+                                                        </tr>
+                                                    </thead>
+                                                }
+
+                                                <tr class="rounded  ">
+                                                    <th colspan="2">Jogador A</th>
+                                                    <th>6</th>
+                                                    <th>3</th>
+                                                    <th>8</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>12/06/2015 <b>18:30</b><a id="modal-25419" href="#modal-container-25419" role="button" data-toggle="modal"><i class="fa fa-2x fa-edit pull-right"></i></a></td>
+                                                    <td colspan="4">Quartas - @i</td>
+                                                </tr>
+                                                <tr class="rounded  ">
+                                                    <th colspan="2">Jogador B</th>
+                                                    <th>6</th>
+                                                    <th>3</th>
+                                                    <th>8</th>
+                                                </tr>
+                                            </table>
+                                        }
+                                    </div>
+
+
+                                    <div class="col-lg-4">
+
+
+                                        <table class="table table-bordered" style="margin-top:65%">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="5" style="background-color:#ffd800; ">Semi Final</th>
+                                                </tr>
+                                            </thead>
+                                            <tr class="rounded  ">
+                                                <th colspan="2">Jogador A</th>
+                                                <th>6</th>
+                                                <th>3</th>
+                                                <th>8</th>
+                                            </tr>
+                                            <tr>
+                                                <td>12/06/2015 <b>18:30</b><a id="modal-25419" href="#modal-container-25419" role="button" data-toggle="modal"><i class="fa fa-2x fa-edit pull-right"></i></a></td>
+                                                <td colspan="4">Semi-Final - 1</td>
+                                            </tr>
+                                            <tr class="rounded  ">
+                                                <th colspan="2">Jogador B</th>
+                                                <th>6</th>
+                                                <th>3</th>
+                                                <th>8</th>
+                                            </tr>
+                                        </table>
+
+
+                                        <table class="table table-bordered" style="margin-top:40%">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="5" style="background-color:#b6ff00; ">Final</th>
+                                                </tr>
+                                            </thead>
+                                            <tr class="rounded  ">
+                                                <th colspan="2">Jogador A</th>
+                                                <th>6</th>
+                                                <th>3</th>
+                                                <th>8</th>
+                                            </tr>
+                                            <tr>
+                                                <td>12/06/2015 <b>18:30</b><a id="modal-25419" href="#modal-container-25419" role="button" data-toggle="modal"><i class="fa fa-2x fa-edit pull-right"></i></a></td>
+                                                <td colspan="4"><b>Jogo Final</b></td>
+                                            </tr>
+                                            <tr class="rounded  ">
+                                                <th colspan="2">Jogador B</th>
+                                                <th>6</th>
+                                                <th>3</th>
+                                                <th>8</th>
+                                            </tr>
+                                        </table>
+
+
+
+                                        <table class="table table-bordered" style="margin-top:40%">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="5" style="background-color:#ffd800; ">Semi Final</th>
+                                                </tr>
+                                            </thead>
+                                            <tr class="rounded  ">
+                                                <th colspan="2">Jogador A</th>
+                                                <th>6</th>
+                                                <th>3</th>
+                                                <th>8</th>
+                                            </tr>
+                                            <tr>
+                                                <td>12/06/2015 <b>18:30</b><a id="modal-25419" href="#modal-container-25419" role="button" data-toggle="modal"><i class="fa fa-2x fa-edit pull-right"></i></a></td>
+                                                <td colspan="4">Semi-Final - 2</td>
+                                            </tr>
+                                            <tr class="rounded  ">
+                                                <th colspan="2">Jogador B</th>
+                                                <th>6</th>
+                                                <th>3</th>
+                                                <th>8</th>
+                                            </tr>
+                                        </table>
+
+
+
+                                    </div>
+
+
+                                </fieldset>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- end row -->
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="hidden-lg">
+
+                <ul class="nav nav-tabs nav-tabs-ar">
+                    <li class="active">
+                        <a href="#4" data-toggle="tab">
+                            <img src="~/Content/Icones_Chaves/Oitavas-Final.png" class="img-responsive" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#5" data-toggle="tab">
+                            <img src="~/Content/Icones_Chaves/Quartas-Final.png" class="img-responsive" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#6" data-toggle="tab">
+                            <img src="~/Content/Icones_Chaves/Semi-Final.png" class="img-responsive" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#7" data-toggle="tab">
+                            <img src="~/Content/Icones_Chaves/Finalpng.png" class="img-responsive" />
+                        </a>
+                    </li>
+                </ul>
+
+
+                <div class="row-fluid">
+                    <div class="container">
+                        <div class="tab-content">
+                            <div class="table-responsive tab-pane active" id="4">
+
+                                <hr />
+
+                                <fieldset>
+
+                                    <legend>Chaves 4ª Classe 1ª Parte</legend>
+
+                                    <div class="col-lg-4">
+
+                                        @for (int i = 1; i < 9; i++)
+                                    {
+
+                                            <table class="table table-bordered ">
+                                                @if (i == 1)
+                                            {
+                                                    <thead>
+                                                        <tr>
+                                                            <th colspan="5" style="background-color:#0094ff;color:#ffffff ">Oitavas de Final</th>
+                                                        </tr>
+                                                    </thead>
+                                            }
+                                                <tr class="rounded  ">
+                                                    <th colspan="2">Gabriel Seben</th>
+                                                    <th>6</th>
+                                                    <th>3</th>
+                                                    <th>8</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>12/06/2015 <b>18:30</b><a id="modal-25419" href="#modal-container-25419" role="button" data-toggle="modal"><i class="fa fa-2x fa-edit pull-right"></i></a></td>
+                                                    <td colspan="4">Oitavas @i</td>
+                                                </tr>
+                                                <tr class="rounded  ">
+                                                    <th colspan="2">Gabriel Seben</th>
+                                                    <th>2</th>
+                                                    <th>6</th>
+                                                    <th>10</th>
+                                                </tr>
+                                            </table>
+
+                                    }
+
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <div class="table-responsive tab-pane " id="5">
+                                <div class="col-lg-4">
+
+                                    <hr />
+
+                                    <fieldset>
+
+                                        <legend>Chaves 4ª Classe 1ª Parte</legend>
+
+                                        @for (int i = 1; i < 5; i++)
+                                    {
+                                            <table class="table table-bordered">
+                                                @if (i == 1)
+                                            {
+                                                    <thead>
+                                                        <tr>
+                                                            <th colspan="5" style="background-color:#00ffff; ">Quartas de Final</th>
+                                                        </tr>
+                                                    </thead>
+                                            }
+
+                                                <tr class="rounded  ">
+                                                    <th colspan="2">Jogador A</th>
+                                                    <th>6</th>
+                                                    <th>3</th>
+                                                    <th>8</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>12/06/2015 <b>18:30</b><a id="modal-25419" href="#modal-container-25419" role="button" data-toggle="modal"><i class="fa fa-2x fa-edit pull-right"></i></a></td>
+                                                    <td colspan="4">Quartas - @i</td>
+                                                </tr>
+                                                <tr class="rounded  ">
+                                                    <th colspan="2">Jogador B</th>
+                                                    <th>6</th>
+                                                    <th>3</th>
+                                                    <th>8</th>
+                                                </tr>
+                                            </table>
+                                    }
+                                    </fieldset>
+                                </div>
+                            </div>
+
+                            <div class="table-responsive tab-pane " id="6">
+                                <div class="col-lg-4">
+
+                                    <hr />
+
+                                    <fieldset>
+
+                                        <legend>Chaves 4ª Classe 1ª Parte</legend>
+
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="5" style="background-color:#ffd800; ">Semi Final</th>
+                                                </tr>
+                                            </thead>
+                                            <tr class="rounded  ">
+                                                <th colspan="2">Jogador A</th>
+                                                <th>6</th>
+                                                <th>3</th>
+                                                <th>8</th>
+                                            </tr>
+                                            <tr>
+                                                <td>12/06/2015 <b>18:30</b><a id="modal-25419" href="#modal-container-25419" role="button" data-toggle="modal"><i class="fa fa-2x fa-edit pull-right"></i></a></td>
+                                                <td colspan="4">Semi-Final - 1</td>
+                                            </tr>
+                                            <tr class="rounded  ">
+                                                <th colspan="2">Jogador B</th>
+                                                <th>6</th>
+                                                <th>3</th>
+                                                <th>8</th>
+                                            </tr>
+                                        </table>
+
+
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="5" style="background-color:#ffd800; ">Semi Final</th>
+                                                </tr>
+                                            </thead>
+                                            <tr class="rounded  ">
+                                                <th colspan="2">Jogador A</th>
+                                                <th>6</th>
+                                                <th>3</th>
+                                                <th>8</th>
+                                            </tr>
+                                            <tr>
+                                                <td>12/06/2015 <b>18:30</b><a id="modal-25419" href="#modal-container-25419" role="button" data-toggle="modal"><i class="fa fa-2x fa-edit pull-right"></i></a></td>
+                                                <td colspan="4">Semi-Final - 2</td>
+                                            </tr>
+                                            <tr class="rounded  ">
+                                                <th colspan="2">Jogador B</th>
+                                                <th>6</th>
+                                                <th>3</th>
+                                                <th>8</th>
+                                            </tr>
+                                        </table>
+
+                                    </fieldset>
+                                </div>
+
+                            </div>
+
+                            <div class="table-responsive tab-pane " id="7">
+                                <div class="col-lg-4">
+
+                                    <hr />
+
+                                    <fieldset>
+
+                                        <legend>Chaves 4ª Classe 1ª Parte</legend>
+
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="5" style="background-color:#b6ff00; ">Final</th>
+                                                </tr>
+                                            </thead>
+                                            <tr class="rounded  ">
+                                                <th colspan="2">Jogador A</th>
+                                                <th>6</th>
+                                                <th>3</th>
+                                                <th>8</th>
+                                            </tr>
+                                            <tr>
+                                                <td>12/06/2015 <b>18:30</b><a id="modal-25419" href="#modal-container-25419" role="button" data-toggle="modal"><i class="fa fa-2x fa-edit pull-right"></i></a></td>
+                                                <td colspan="4"><b>Jogo Final</b></td>
+                                            </tr>
+                                            <tr class="rounded  ">
+                                                <th colspan="2">Jogador B</th>
+                                                <th>6</th>
+                                                <th>3</th>
+                                                <th>8</th>
+                                            </tr>
+                                        </table>
+
+                                    </fieldset>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end #content -->

@@ -1,0 +1,553 @@
+﻿@{
+    ViewBag.Title = "Novo_Cliente";
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <title>Intc Alpha</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+
+    <!-- ================== BEGIN BASE CSS STYLE ================== -->
+    <link href="~/Content/css/Font/Font.css" rel="stylesheet">
+    <link href="/Scripts/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/css/animate.min.css" rel="stylesheet" />
+    <link href="~/Content/css/style.min.css" rel="stylesheet" />
+    <link href="~/Content/css/style-responsive.min.css" rel="stylesheet" />
+    <link href="~/Content/css/theme/default.css" rel="stylesheet" id="theme" />
+    <!-- ================== END BASE CSS STYLE ================== -->
+    <!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+    <link href="/Scripts/plugins/bootstrap-wizard/css/bwizard.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/parsley/src/parsley.css" rel="stylesheet" />
+    <!-- ================== END PAGE LEVEL STYLE ================== -->
+    <!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+    <link href="/Scripts/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/ionRangeSlider/css/ion.rangeSlider.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/ionRangeSlider/css/ion.rangeSlider.skinNice.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/password-indicator/css/password-indicator.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/bootstrap-combobox/css/bootstrap-combobox.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/jquery-tag-it/css/jquery.tagit.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/select2/dist/css/select2.min.css" rel="stylesheet" />
+    <!-- ================== END PAGE LEVEL STYLE ================== -->
+    <!-- ================== BEGIN BASE JS ================== -->
+    <script src="/Scripts/plugins/pace/pace.min.js"></script>
+    <!-- ================== END BASE JS ================== -->
+</head>
+<body>
+    <!-- begin #page-loader -->
+    <div id="page-loader" class="fade in"><span class="spinner"></span></div>
+    <!-- end #page-loader -->
+    <!-- begin #page-container -->
+    <div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
+        <!-- begin #header -->
+        @Html.Partial("_Header")
+        <!-- end #header -->
+        <!-- begin #sidebar -->
+
+        <div class="sidebar-bg">
+            @Html.Partial("_Menu")
+        </div>
+        <!-- end #sidebar -->
+        <!-- begin #content -->
+        <div id="content" class="content">
+            <!-- begin breadcrumb -->
+            <ol class="breadcrumb pull-right">
+                <li><a href="javascript:;">Home</a></li>
+                <li><a href="javascript:;">Clientes</a></li>
+                <li class="active">Novo Cliente</li>
+            </ol>
+            <!-- end breadcrumb -->
+            <!-- begin page-header -->
+            <h1 class="page-header">Novo Cliente <small>Preenchimento de campos obrigatórios</small></h1>
+            <!-- end page-header -->
+            <!-- begin row -->
+            <div class="row">
+                <!-- begin col-12 -->
+                <div class="col-md-12">
+                    <!-- begin panel -->
+                    <div class="panel panel-inverse">
+                        <div class="panel-heading">
+                            <div class="panel-heading-btn">
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                            </div>
+                            <h4 class="panel-title">Formulário Adicionar Cliente</h4>
+                        </div>
+                        <div class="panel-body">
+                            <form action="/" method="POST" data-parsley-validate="true" name="form-wizard">
+                                <div id="wizard">
+                                    <ol>
+                                        <li>
+                                            Identificação
+                                            <small>Dados de identificação padrão. Campos de CPF e RG são obrigatórios e unicos.</small>
+                                        </li>
+                                        <li>
+                                            Login
+                                            <small>Escolha o login para acesso de áreas restritas.</small>
+                                        </li>
+
+                                        <li>
+                                            Permissões
+                                            <small>Escolha o perfil de acessos deste colaborador.</small>
+                                        </li>
+                                        <li>
+                                            Cadastro Realizado
+                                            <small>Este cliente está apto a participar das atividades da academia.</small>
+                                        </li>
+                                    </ol>
+
+                                    <!-- begin wizard step-1 -->
+                                    <div class="wizard-step-1">
+                                        <fieldset>
+                                            <legend class="pull-left width-full">Identificação</legend>
+                                            <!-- begin firts row -->
+                                            <div class="row">
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-4">
+                                                    <div class="form-group block1">
+                                                        <label>Nome Completo</label>
+                                                        <input type="text" name="firstname" placeholder="Nome Completo" class="form-control" data-parsley-group="wizard-step-1" />
+                                                    </div>
+                                                </div>
+                                                <!-- end col-4 -->
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-4">
+                                                    <div class="form-group block1">
+                                                        <label>Data de Nascimento</label>
+                                                        <div class="input-group date" id="datepicker-disabled-past" data-date-format="dd-mm-yyyy" data-date-start-date="Date.default">
+                                                            <input type="text" class="form-control" placeholder="Selecione a data de Nascimento" />
+                                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- end col-4 -->
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Email</label>
+                                                        <input type="email" name="lastname" placeholder="Email" class="form-control" data-parsley-group="wizard-step-1" />
+                                                    </div>
+                                                </div>
+                                                <!-- end col-4 -->
+                                            </div>
+                                            <!-- end row -->
+                                            <!-- begin second row -->
+                                            <div class="row">
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-4">
+                                                    <div class="form-group block1">
+                                                        <label>CPF</label>
+                                                        <input type="text" id="masked-input-CPF" name="firstname" placeholder="Nome Completo" class="form-control" data-parsley-group="wizard-step-1" />
+                                                    </div>
+                                                </div>
+                                                <!-- end col-4 -->
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>RG</label>
+                                                        <input type="text" id="masked-input-RG" name="middle" placeholder="Data de Nascimento" class="form-control" data-parsley-group="wizard-step-1" />
+                                                    </div>
+                                                </div>
+                                                <!-- end col-4 -->
+                                                <!-- begin col-4 -->
+                                                <!-- end col-4 -->
+                                            </div>
+                                            <!-- end row -->
+                                            <!-- begin third row -->
+                                            <div class="row">
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-4">
+                                                    <div class="form-group block1">
+                                                        <label>Telefone Cel</label>
+                                                        <input type="text" class="form-control" id="masked-input-phone" placeholder="(00) 0000-0000" data-parsley-group="wizard-step-1" />
+                                                    </div>
+                                                </div>
+                                                <!-- end col-4 -->
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-4">
+                                                    <div class="form-group block1">
+                                                        <label>Telefone Cel</label>
+                                                        <input type="text" class="form-control" id="masked-input-phone_2" placeholder="(00) 0000-0000" data-parsley-group="wizard-step-1" />
+                                                    </div>
+                                                </div>
+                                                <!-- end col-4 -->
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-4">
+                                                    <div class="form-group block1">
+                                                        <label>Telefone Cel</label>
+                                                        <input type="text" class="form-control" id="masked-input-phone_3" placeholder="(00) 0000-0000" data-parsley-group="wizard-step-1" />
+                                                    </div>
+                                                </div>
+                                                <!-- end col-4 -->
+                                            </div>
+                                            <!-- end row -->
+                                            <!-- begin four row -->
+                                            <div class="row">
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-3">
+                                                    <div class="form-group block1">
+                                                        <label>Rua</label>
+                                                        <input type="text" name="firstname" placeholder="Rua" class="form-control" data-parsley-group="wizard-step-1" />
+                                                    </div>
+                                                </div>
+                                                <!-- end col-4 -->
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Bairro</label>
+                                                        <input type="text" name="middle" placeholder="Bairro" class="form-control" data-parsley-group="wizard-step-1" />
+                                                    </div>
+                                                </div>
+                                                <!-- end col-4 -->
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Número</label>
+                                                        <input type="text" name="lastname" placeholder="Nº" class="form-control" data-parsley-group="wizard-step-1" />
+                                                    </div>
+                                                </div>
+                                                <!-- end col-4 -->
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>CEP</label>
+                                                        <input type="text" name="lastname" id="masked-input-CEP" placeholder="99999-999" class="form-control" data-parsley-group="wizard-step-1" />
+                                                    </div>
+                                                </div>
+                                                <!-- end col-4 -->
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Compl.</label>
+                                                        <input type="text" name="lastname" placeholder="(opcional)" class="form-control" data-parsley-group="wizard-step-1" />
+                                                    </div>
+                                                </div>
+                                                <!-- end col-4 -->
+                                            </div>
+                                            <!-- end row -->
+
+                                        </fieldset>
+                                    </div>
+                                    <!-- end wizard step-1 -->
+                                    <!-- begin wizard step-2 -->
+                                    <div class="wizard-step-2">
+                                        <fieldset>
+                                            <legend class="pull-left width-full">Planos e Perfil</legend>
+                                            <!-- begin firts row -->
+                                            <!-- begin firts row -->
+                                            <div class="row">
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-4">
+                                                    <div class="form-group block1">
+                                                        <label>Nome de Usuário</label>
+                                                        <input type="text" name="firstname" placeholder="Nome de reconhecimento interno" class="form-control" data-parsley-group="wizard-step-1" />
+                                                    </div>
+                                                </div>
+                                                <!-- end col-4 -->
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Email (login)</label>
+                                                        <input type="text" name="middle" placeholder="Email para acesso" class="form-control" data-parsley-group="wizard-step-1" />
+                                                    </div>
+                                                </div>
+                                                <!-- end col-4 -->
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Password</label>
+                                                        <input type="text" name="lastname" placeholder="Senha de Acesso" class="form-control" data-parsley-group="wizard-step-1" />
+                                                    </div>
+                                                </div>
+                                                <!-- end col-4 -->
+                                            </div>
+                                            <!-- end row -->
+                                        </fieldset>
+                                    </div>
+                                    <!-- end wizard step-2 -->
+                                    <!-- begin wizard step-3 -->
+                                    <div class="wizard-step-3">
+                                        <fieldset>
+                                            <legend class="pull-left width-full">Permissões</legend>
+                                            <!-- begin row -->
+                                            <div class="row">
+                                                <!-- begin col-3 -->
+                                                <div class="col-md-3">
+                                                    <div class="m-b-10 text-inverse f-s-10"><b>MAIN FEATURES</b></div>
+                                                    <table class="text-inverse m-b-20 width-full">
+                                                        <tr>
+                                                            <td>
+                                                                <i class="fa fa-laptop fa-2x pull-left fa-fw"></i>
+                                                                <div class="m-t-4">Permissões para colaboradores</div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="p-t-10">
+                                                                <i class="fa fa-crosshairs fa-2x pull-left fa-fw"></i>
+                                                                <div class="m-t-4">Escolha o conteúdo para visualização</div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="p-t-10">
+                                                                <i class="fa fa-expand fa-2x pull-left fa-fw"></i>
+                                                                <div class="m-t-4">Suporte direcionado</div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="p-t-10">
+                                                                <i class="fa fa-wrench fa-2x pull-left fa-fw"></i>
+                                                                <div class="m-t-4">Organizaçaõ de Permissões</div>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                    <div class="alert alert-warning">
+                                                        <i class="fa fa-info-circle fa-lg m-r-5 pull-left m-t-2"></i> Limitações na navegação <b class="text-inverse">melhoram a</b> organizaçaõ de seus processos administrativos.
+                                                    </div>
+                                                </div>
+                                                <!-- end col-3 -->
+                                                <!-- begin col-9 -->
+                                                <div class="col-md-9">
+                                                    <table class="table table-email table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="email-select"><a href="#" data-click="email-select-all"><i class="fa fa-square-o fa-fw"></i></a></th>
+                                                                <th>Permissão</th>
+                                                                <th>Nível</th>
+                                                                <th>Usuários</th>
+                                                                <th>Detalhes</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr class="active">
+                                                                <td class="email-select"><a href="#" data-click="email-select-all"><i class="fa fa-square-o fa-fw"></i></a></td>
+                                                                <td class="email-sender">Atendimento</td>
+                                                                <td class="email-date">Nível 3</td>
+                                                                <td>23</td>
+                                                                <td>
+                                                                    <span class="email-time">
+                                                                        <a href="javascript:;" id="atd_btn" class="btn btn-info btn-xs m-r-5">Detalhes</a>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                            <!--hide infromations-->
+                                                            <tr id="atd" class="success">
+                                                                <td colspan="5">
+                                                                    Information
+                                                                </td>
+                                                            </tr>
+                                                            <!--end hide informations-->
+                                                            <tr class="active">
+                                                                <td class="email-select"><a href="#" data-click="email-select-all"><i class="fa fa-square-o fa-fw"></i></a></td>
+                                                                <td class="email-sender">Coordenação</td>
+                                                                <td class="email-date">Nível 3</td>
+                                                                <td>23</td>
+                                                                <td>
+                                                                    <span class="email-time">
+                                                                        <a href="javascript:;" id="cdn_btn" class="btn btn-info btn-xs m-r-5">Detalhes</a>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                            <!--hide infromations-->
+                                                            <tr id="cdn" class="success">
+                                                                <td colspan="5">
+                                                                    Information 
+                                                                </td>
+                                                            </tr>
+                                                            <!--end hide informations-->
+                                                            <tr class="active">
+                                                                <td class="email-select"><a href="#" data-click="email-select-all"><i class="fa fa-square-o fa-fw"></i></a></td>
+                                                                <td class="email-sender">Professores</td>
+                                                                <td class="email-date">Nível 3</td>
+                                                                <td>23</td>
+                                                                <td>
+                                                                    <span class="email-time">
+                                                                        <a href="javascript:;" id="pfs_btn" class="btn btn-info btn-xs m-r-5">Detalhes</a>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                            <!--hide infromations-->
+                                                            <tr id="pfs" class="success">
+                                                                <td colspan="5">
+                                                                    Information
+                                                                </td>
+                                                            </tr>
+                                                            <!--end hide informations-->
+                                                            </tr>
+                                                            <tr class="active">
+                                                                <td class="email-select"><a href="#" data-click="email-select-all"><i class="fa fa-square-o fa-fw"></i></a></td>
+                                                                <td class="email-sender">Finaceiro</td>
+                                                                <td class="email-date">Nível 3</td>
+                                                                <td>23</td>
+                                                                <td>
+                                                                    <span class="email-time">
+                                                                        <a href="javascript:;" id="fnc_btn" class="btn btn-info btn-xs m-r-5">Detalhes</a>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                            <!--hide infromations-->
+                                                            <tr id="fnc" class="success">
+                                                                <td colspan="5">
+                                                                    Information
+                                                                </td>
+                                                            </tr>
+                                                            <!--end hide informations-->
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                                </div>
+                                                <!-- end col-9 -->
+                                            </div>
+                                            <!-- end row -->
+                                            <!-- end #content -->
+
+                                        </fieldset>
+                                    </div>
+                                    <!-- end wizard step-3 -->
+                                    <!-- begin wizard step-4 -->
+                                    <div class="wizard-step-4">
+                                        <div class="jumbotron m-b-0 text-center">
+                                            <h1>Cadasrtro Realizado</h1>
+                                            <p>Esrte Cliente está apto a participar das atividades de sua academia. </p>
+                                            <p><a class="btn btn-success btn-lg" role="button">Voltar para Home</a></p>
+                                        </div>
+                                    </div>
+                                    <!-- end wizard step-4 -->
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- end panel -->
+                </div>
+                <!-- end col-12 -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end #content -->
+        <!-- begin scroll to top btn -->
+        <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+        <!-- end scroll to top btn -->
+    </div>
+    <!-- end page container -->
+    <!-- ================== BEGIN BASE JS ================== -->
+    <script src="/Scripts/plugins/jquery/jquery-1.9.1.min.js"></script>
+    <script src="/Scripts/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+    <script src="/Scripts/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
+    <script src="/Scripts/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+        <script src="assets/crossbrowserjs/html5shiv.js"></script>
+        <script src="assets/crossbrowserjs/respond.min.js"></script>
+        <script src="assets/crossbrowserjs/excanvas.min.js"></script>
+    <![endif]-->
+    <script src="/Scripts/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="/Scripts/plugins/jquery-cookie/jquery.cookie.js"></script>
+    <!-- ================== END BASE JS ================== -->
+    <!-- ================== BEGIN PAGE LEVEL JS ================== -->
+    <script src="/Scripts/plugins/parsley/dist/parsley.js"></script>
+    <script src="/Scripts/plugins/bootstrap-wizard/js/bwizard.js"></script>
+    <script src="/Scripts/js/form-wizards-validation.demo.min.js"></script>
+    <script src="/Scripts/js/apps.min.js"></script>
+    <!-- ================== END PAGE LEVEL JS ================== -->
+
+    @*<script>
+        $(document).ready(function () {
+            App.init();
+            FormWizardValidation.init();
+        });
+    </script>*@
+
+    <!-- ================== BEGIN PAGE LEVEL JS ================== -->
+    <script src="/Scripts/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="/Scripts/plugins/ionRangeSlider/js/ion-rangeSlider/ion.rangeSlider.min.js"></script>
+    <script src="/Scripts/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+    <script src="/Scripts/plugins/masked-input/masked-input.min.js"></script>
+    <script src="/Scripts/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+    <script src="/Scripts/plugins/password-indicator/js/password-indicator.js"></script>
+    <script src="/Scripts/plugins/bootstrap-combobox/js/bootstrap-combobox.js"></script>
+    <script src="/Scripts/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="/Scripts/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+    <script src="/Scripts/plugins/bootstrap-tagsinput/bootstrap-tagsinput-typeahead.js"></script>
+    <script src="/Scripts/plugins/jquery-tag-it/js/tag-it.min.js"></script>
+    <script src="/Scripts/plugins/bootstrap-daterangepicker/moment.js"></script>
+    <script src="/Scripts/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="/Scripts/plugins/select2/dist/js/select2.min.js"></script>
+    <script src="/Scripts/js/form-plugins.demo.min.js"></script>
+    <script src="/Scripts/js/apps.min.js"></script>
+    <!-- ================== END PAGE LEVEL JS ================== -->
+
+    <script>
+        $(document).ready(function () {
+            App.init();
+            FormPlugins.init();
+            FormWizardValidation.init();
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#atd").hide();
+            $("#cdn").hide();
+            $("#pfs").hide();
+            $("#fnc").hide();
+        $("#atd_btn").click(function () {
+            $("#atd").toggle(200);
+            $("#cdn").hide();
+            $("#pfs").hide();
+            $("#fnc").hide();
+        });
+        $("#cdn_btn").click(function () {
+            $("#atd").hide();
+            $("#cdn").toggle(200);
+            $("#pfs").hide();
+            $("#fnc").hide();
+        });
+        $("#pfs_btn").click(function () {
+            $("#atd").hide(200);
+            $("#cdn").hide(200);
+            $("#pfs").toggle(200);
+            $("#fnc").hide(200);
+        });
+        $("#fnc_btn").click(function () {
+            $("#atd").hide(200);
+            $("#cdn").hide(200);
+            $("#pfs").hide(200);
+            $("#fnc").toggle(200);
+        }); 
+    });
+    </script>
+
+    <script>
+    $(document).ready(function () {
+        $("li").click(function () {
+            $(this).addClass("active");
+        });
+    });
+    </script>
+
+
+
+
+
+
+</body>
+</html>
+

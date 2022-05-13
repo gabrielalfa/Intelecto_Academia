@@ -1,0 +1,842 @@
+﻿@{
+    ViewBag.Title = "Cliente";
+    Layout = null;
+}
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <title>Intc Alpha</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+
+    <!-- ================== BEGIN BASE CSS STYLE ================== -->
+    <link href="~/Content/css/Font/Font.css" rel="stylesheet">
+    <link href="/Scripts/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/css/animate.min.css" rel="stylesheet" />
+    <link href="~/Content/css/style.min.css" rel="stylesheet" />
+    <link href="~/Content/css/style-responsive.min.css" rel="stylesheet" />
+    <link href="~/Content/css/theme/default.css" rel="stylesheet" id="theme" />
+    <!-- ================== END BASE CSS STYLE ================== -->
+    <!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+    <link href="/Scripts/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/ionRangeSlider/css/ion.rangeSlider.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/ionRangeSlider/css/ion.rangeSlider.skinNice.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/password-indicator/css/password-indicator.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/bootstrap-combobox/css/bootstrap-combobox.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/jquery-tag-it/css/jquery.tagit.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/select2/dist/css/select2.min.css" rel="stylesheet" />
+    <!-- ================== END PAGE LEVEL STYLE ================== -->
+
+
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+
+
+
+</head>
+<body>
+    <!-- begin #page-loader -->
+    <div id="page-loader" class="fade in"><span class="spinner"></span></div>
+    <!-- end #page-loader -->
+    <!-- begin #page-container -->
+    <div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
+        <!-- begin #header -->
+        @Html.Partial("_Header")
+        <!-- end #header -->
+        <!-- begin #sidebar -->
+
+        <div class="sidebar-bg">
+            @Html.Partial("_Menu")
+        </div>
+        <!-- end #sidebar -->
+        <!-- begin #content -->
+        <div id="content" class="content content-full-width">
+            <div class="p-20">
+                <fieldset>
+
+                    <legend>Lista de Clientes Avaliados</legend>
+                    <!-- begin row -->
+                    <div class="row">
+                        <!-- begin col-2 -->
+                        <div class="col-md-3">
+
+
+
+                            <div class="">
+                                <h5 class="m-t-20">Controle de Clientes</h5>
+                                <ul class="nav nav-pills nav-stacked ">
+                                    <li><a id="add_ava" href="#modal-alert" class="email-btn" data-toggle="modal" data-click="email-highlight"><i class="fa fa-plus-square fa-2x m-r-5"></i> Nova Avaliação</a></li>
+                                    @*<li><a href="#"><i class="fa fa-pencil fa-2x m-r-5"></i> Editar Avaliação</a></li>*@
+                                    <li><a href="/Avaliacoes/Impressao" target="_blank"><i class="fa fa-print fa-2x m-r-5"></i> Imprimir Avaliação</a></li>
+                                    <li><a href="#modal-email" class="email-btn" data-toggle="modal" data-click="email-highlight"><i class="fa fa-send fa-2x m-r-5"></i> Enviar Email</a></li>
+                                </ul>
+                                <h5 class="m-t-20">Folders</h5>
+                                <ul class="nav nav-pills nav-stacked ">
+                                    <li><a href="#"><i class="fa fa-folder fa-2x m-r-5"></i> Masculino</a></li>
+                                    <li><a href="#"><i class="fa fa-folder fa-2x m-r-5"></i> Feminino</a></li>
+                                    <li><a href="#"><i class="fa fa-folder fa-2x m-r-5"></i> + 60</a></li>
+                                    <li><a href="#"><i class="fa fa-folder fa-2x m-r-5"></i> - 18</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- end col-2 -->
+                        <!-- begin col-10 -->
+                        <div class="col-md-9">
+                            <div class="row">
+                                <!-- begin btn-group -->
+                                <div class="form-group">
+                                    <div class="col-md-4 p-15">
+                                        <select class="form-control selectpicker " data-size="10" data-live-search="true" data-style="btn-white">
+                                            <option value="" selected>Selecione Cliente</option>
+                                            <option value="AF">Afghanistan</option>
+                                            <option value="AL">Albania</option>
+                                            <option value="DZ">Algeria</option>
+                                            <option value="AS">American Samoa</option>
+                                            <option value="AD">Andorra</option>
+                                            <option value="AO">Angola</option>
+                                            <option value="AI">Anguilla</option>
+                                            <option value="AQ">Antarctica</option>
+                                            <option value="AG">Antigua and Barbuda</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <!-- end btn-group -->
+                            </div>
+                            <!-- end btn-group -->
+
+                            <div class="email-content">
+                                <div class="table-responsive">
+                                    <table class="table table-email range-handle table-responsive">
+                                        <thead>
+                                            <tr>
+                                                <th class="email-select"><a href="#" data-click="email-select-all"><i class="fa fa-square-o fa-fw"></i></a></th>
+                                                <th>
+                                                    <div class="dropdown">
+                                                        <a href="#" class="email-header-link" data-toggle="dropdown">Nome <i class="fa fa-angle-down m-l-5"></i></a>
+                                                        <ul class="dropdown-menu">
+                                                            <li class="active"><a href="#">A - Z</a></li>
+                                                            <li><a href="#">Z - A</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div class="dropdown">
+                                                        <a href="#" class="email-header-link" data-toggle="dropdown">Cliente Tipo <i class="fa fa-angle-down m-l-5"></i></a>
+                                                        <ul class="dropdown-menu">
+                                                            <li class="active"><a href="#">Ouro</a></li>
+                                                            <li><a href="#">Prata</a></li>
+                                                            <li><a href="#">Outo</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </th>
+                                                <th>Status</th>
+                                                <th>Ações</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tr id="1" class="tr_nome">
+                                            <th class="email-select"><a href="#" data-click="email-select-all"><i class="fa fa-square-o fa-fw"></i></a></th>
+                                            <td class="email-sender">
+                                                Gabriel Seben
+                                            </td>
+
+                                            <td class="email-date">Cliente Ouro</td>
+                                            <td class="email-subject">
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-success btn-xs">Ativo</button>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <a href="#" class="email-btn" data-click="email-archive"><i class="fa fa-cogs"></i></a>
+                                                <a href="#" class="email-btn" data-click="email-remove"><i class="fa fa-trash-o"></i></a>
+                                                <a href="#modal-alert" class="email-btn" data-toggle="modal" data-click="email-highlight"><i class="fa fa-flag"></i></a>
+                                            </td>
+                                        </tr>
+
+                                        <tbody id="i1" class="hide  espera">
+                                            <tr class="active">
+                                                <td colspan="6"></td>
+                                            </tr>
+                                            <tr class="tr_linha">
+
+                                                <th class="email-select"><a href="#" data-click="email-select-single"><i class="fa fa-square-o fa-fw"></i></a></th>
+                                                <td><b>12/06/2015</b></td>
+                                                <td><b>Avaliador:</b> João Silva</td>
+                                                <td><a href="javascript:;" class="btn btn-primary btn-xs m-r-5 pull-right">Editar</a></td>
+                                                <td><a href="javascript:;" class="btn btn-danger btn-xs m-r-5">Deletar</a></td>
+                                            </tr>
+                                            <tr class="tr_linha">
+
+                                                <th class="email-select"><a href="#" data-click="email-select-single"><i class="fa fa-square-o fa-fw"></i></a></th>
+                                                <td><b>12/06/2015</b></td>
+                                                <td><b>Avaliador:</b> João Silva</td>
+                                                <td><a href="javascript:;" class="btn btn-primary btn-xs m-r-5 pull-right">Editar</a></td>
+                                                <td><a href="javascript:;" class="btn btn-danger btn-xs m-r-5">Deletar</a></td>
+                                            </tr>
+                                            <tr class="tr_linha">
+
+                                                <th class="email-select"><a href="#" data-click="email-select-single"><i class="fa fa-square-o fa-fw"></i></a></th>
+                                                <td><b>12/06/2015</b></td>
+                                                <td><b>Avaliador:</b> João Silva</td>
+                                                <td><a href="javascript:;" class="btn btn-primary btn-xs m-r-5 pull-right">Editar</a></td>
+                                                <td><a href="javascript:;" class="btn btn-danger btn-xs m-r-5">Deletar</a></td>
+                                            </tr>
+
+                                        </tbody>
+
+                                        <tr id="2" class="tr_nome">
+                                            <td class="email-select"><a href="#" data-click="email-select-single"><i class="fa fa-square-o fa-fw"></i></a></td>
+                                            <td class="email-sender">
+                                                Gabriel Seben
+                                            </td>
+
+                                            <td class="email-date">Cliente Ouro</td>
+                                            <td class="email-subject">
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-success btn-xs">Ativo</button>
+                                                    
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <a href="#" class="email-btn" data-click="email-archive"><i class="fa fa-cogs"></i></a>
+                                                <a href="#" class="email-btn" data-click="email-remove"><i class="fa fa-trash-o"></i></a>
+                                                <a href="#modal-alert" class="email-btn" data-toggle="modal" data-click="email-highlight"><i class="fa fa-flag"></i></a>
+                                            </td>
+                                        </tr>
+
+                                        <tbody id="i2" class="hide espera">
+
+                                            <tr class="active">
+                                                <td colspan="6"></td>
+                                            </tr>
+                                            <tr class="tr_linha">
+
+                                                <th class="email-select"><a href="#" data-click="email-select-single"><i class="fa fa-square-o fa-fw"></i></a></th>
+                                                <td><b>12/06/2015</b></td>
+                                                <td><b>Avaliador:</b> João Silva</td>
+                                                <td><a href="javascript:;" class="btn btn-primary btn-xs m-r-5 pull-right">Editar</a></td>
+                                                <td><a href="javascript:;" class="btn btn-danger btn-xs m-r-5">Deletar</a></td>
+                                            </tr>
+                                            <tr class="tr_linha">
+
+                                                <th class="email-select"><a href="#" data-click="email-select-single"><i class="fa fa-square-o fa-fw"></i></a></th>
+                                                <td><b>12/06/2015</b></td>
+                                                <td><b>Avaliador:</b> João Silva</td>
+                                                <td><a href="javascript:;" class="btn btn-primary btn-xs m-r-5 pull-right">Editar</a></td>
+                                                <td><a href="javascript:;" class="btn btn-danger btn-xs m-r-5">Deletar</a></td>
+                                            </tr>
+                                            <tr class="tr_linha">
+
+                                                <th class="email-select"><a href="#" data-click="email-select-single"><i class="fa fa-square-o fa-fw"></i></a></th>
+                                                <td><b>12/06/2015</b></td>
+                                                <td><b>Avaliador:</b> João Silva</td>
+                                                <td><a href="javascript:;" class="btn btn-primary btn-xs m-r-5 pull-right">Editar</a></td>
+                                                <td><a href="javascript:;" class="btn btn-danger btn-xs m-r-5">Deletar</a></td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                                <div class="email-footer clearfix">
+                                    737 Clientes
+                                    <ul class="pagination pagination-sm m-t-0 m-b-0 pull-right">
+                                        <li class="disabled"><a href="javascript:;"><i class="fa fa-angle-double-left"></i></a></li>
+                                        <li class="disabled"><a href="javascript:;"><i class="fa fa-angle-left"></i></a></li>
+                                        <li><a href="javascript:;"><i class="fa fa-angle-right"></i></a></li>
+                                        <li><a href="javascript:;"><i class="fa fa-angle-double-right"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end col-10 -->
+                    </div>
+                    <!-- end row -->
+                </fieldset>
+
+            </div>
+        </div>
+        <!-- end #content -->
+        <!-- #MODAL AREA -->
+        <!-- #modal-formulario novo cliente -->
+        <div class="modal fade" id="modal-alert">
+            <div class="modal-dialog" style="width:1000px !important">
+                <div class="modal-content" style="background-color:#d9e0e7">
+                    <!-- begin #header Modal-->
+                    <div class="modal-header" style="background-color:#ffffff; ">
+                        <div id="header" class="header navbar navbar-default navbar-fixed-top p-10">
+                            <!-- begin container-fluid -->
+                            <div class="container-fluid">
+                                <!-- begin mobile sidebar expand / collapse button -->
+                                <div class="navbar-header">
+
+                                    <img class="pull-left m-t-10  m-l-10 p-r-10" src="~/Content/img/Cerebro/Gray/logo.png" />
+                                    <a href="/Home/Index" class="navbar-brand"><span></span><b> Intelecto Alpha - Avaliação</b></a>
+                                    <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+
+                                </div>
+                                <!-- end mobile sidebar expand / collapse button -->
+                                <!-- begin header navigation right -->
+                                <ul class="nav navbar-nav navbar-right">
+
+                                    <li class="dropdown navbar-user">
+                                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                                            @*<img src="~/Content/img/user-13.jpg" alt="" />*@
+                                            <span class="hidden-xs"><b>Metas: </b>Hipertrofia</span> <b class="caret"></b>
+                                        </a>
+                                        <ul class="dropdown-menu animated fadeInLeft">
+                                            <li class="arrow"></li>
+                                            <li><a href="javascript:;">Emagrecimento</a></li>
+                                            <li><a href="javascript:;">Definição</a></li>
+                                            <li><a href="javascript:;">Condicionamento</a></li>
+                                            <li><a href="javascript:;">Adaptação</a></li>
+                                            <li><a href="javascript:;">Recuperação</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
+                                            <i class="fa fa-bell-o"></i>
+                                            <span class="label">5</span>
+                                        </a>
+                                        <ul class="dropdown-menu media-list pull-right animated fadeInDown">
+                                            <li class="dropdown-header">Restrições (5)</li>
+                                            <li class="media">
+                                                <a href="javascript:;">
+                                                    <div class="media-left"><i class="fa fa-bug media-object bg-red"></i></div>
+                                                    <div class="media-body">
+                                                        <h6 class="media-heading">Dores Joelho</h6>
+                                                        <div class="text-muted f-s-11">Dores causadas por inflamação do tendão esquerdo.</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="media">
+                                                <a href="javascript:;">
+                                                    <div class="media-left"><i class="fa fa-drupal media-object bg-aqua"></i></div>
+                                                    <div class="media-body">
+                                                        <h6 class="media-heading">Lombar</h6>
+                                                        <div class="text-muted f-s-11">Lesão da L4, cuidados com impacto</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="media">
+                                                <a href="javascript:;">
+                                                    <div class="media-left"><i class="fa fa-apple media-object bg-blue-lighter"></i></div>
+                                                    <div class="media-body">
+                                                        <h6 class="media-heading">Cervical</h6>
+                                                        <div class="text-muted f-s-11">Lesão da C1, cuidados com impacto</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="media">
+                                                <a href="javascript:;">
+                                                    <div class="media-left"><i class="fa fa-vine media-object bg-aqua"></i></div>
+                                                    <div class="media-body">
+                                                        <h6 class="media-heading">Lombar</h6>
+                                                        <div class="text-muted f-s-11">Lesão da L4, cuidados com impacto</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+
+                                            <li class="dropdown-footer text-center">
+                                                <a href="javascript:;">View more</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown navbar-user">
+                                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                                            <img src="~/Content/img/user-8.jpg" alt="" />
+                                            <span class="hidden-xs">Gabriel Seben</span> <b class="caret"></b>
+                                        </a>
+                                        <ul class="dropdown-menu animated fadeInLeft">
+                                            <li class="arrow"></li>
+                                            <li><a href="javascript:;">Dados</a></li>
+                                            <li><a href="javascript:;">Histórico</a></li>
+                                            <li><a href="javascript:;">Performance</a></li>
+                                            <li><a href="javascript:;">Habilidades</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <button type="button" class="close pull-right m-10" data-dismiss="modal" aria-hidden="true">×</button>
+                                    </li>
+                                </ul>
+                                <!-- end header navigation right -->
+                            </div>
+                            <!-- end container-fluid -->
+                        </div>
+                    </div>
+                    <!-- end #header Modal-->
+                    <div class="modal-body" style="padding-top:70px !important">
+                        <div class="row">
+                            <!-- begin col-2 -->
+                            <div class="col-md-3">
+
+                                <div class="">
+
+                                    <ul class="nav nav-pills nav-stacked ">
+                                        <li id="0" class="li_hide_modal"><a href="#"><i class="fa fa-pencil fa-2x m-r-5"></i> Restrições/Condições</a></li>
+                                        <li id="1" class="li_hide_modal"><a href="#"><i class="fa fa-pencil fa-2x m-r-5"></i> Anamnese/PAR-Q</a></li>
+                                        <li id="2" class="li_hide_modal"><a href="#"><i class="fa fa-pencil fa-2x m-r-5"></i> Antropometria</a></li>
+                                        <li id="3" class="li_hide_modal"><a href="#"><i class="fa fa-pencil fa-2x m-r-5"></i> Circunferências</a></li>
+                                        <li id="4" class="li_hide_modal"><a href="#"><i class="fa fa-pencil fa-2x m-r-5"></i> Neuromotores</a></li>
+                                        <li id="5" class="li_hide_modal"><a href="#"><i class="fa fa-pencil fa-2x m-r-5"></i> Desvios Posturais</a></li>
+                                        <li id="6" class="li_hide_modal"><a href="#"><i class="fa fa-pencil fa-2x m-r-5"></i> Pres. Arterial/Pulsação</a></li>
+                                        <li id="7" class="li_hide_modal"><a href="#"><i class="fa fa-pencil fa-2x m-r-5"></i> Metas e Envio</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- end col-2 -->
+                            <!-- begin col-9 -->
+                            <div class="col-md-6">
+                                <div class="">
+                                    <form class="form-horizontal hide form_hide" id="fr_0" action="/" method="POST">
+                                        <fieldset>
+                                            <legend>Restriçõe Condicionamento</legend>
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label">Campo 1</label>
+                                                <div class="col-md-8">
+                                                    <input type="email" class="form-control" placeholder="Campo 1" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label">Campo 2</label>
+                                                <div class="col-md-8">
+                                                    <input type="password" class="form-control" placeholder="Campo 1" />
+                                                </div>
+                                            </div>
+
+
+                                        </fieldset>
+                                    </form>
+                                    <form class="form-horizontal hide form_hide" id="fr_1" action="/" method="POST">
+                                        <fieldset>
+                                            <legend>Anaminese</legend>
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label">Campo 1</label>
+                                                <div class="col-md-8">
+                                                    <input type="email" class="form-control" placeholder="Campo 1" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label">Campo 2</label>
+                                                <div class="col-md-8">
+                                                    <input type="password" class="form-control" placeholder="Campo 1" />
+                                                </div>
+                                            </div>
+
+
+                                        </fieldset>
+                                    </form>
+                                    <form class="form-horizontal hide form_hide" id="fr_2" action="/" method="POST">
+                                        <fieldset>
+                                            <legend>Antropometria</legend>
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label">Campo 1</label>
+                                                <div class="col-md-8">
+                                                    <input type="email" class="form-control" placeholder="Campo 1" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label">Campo 2</label>
+                                                <div class="col-md-8">
+                                                    <input type="password" class="form-control" placeholder="Campo 1" />
+                                                </div>
+                                            </div>
+
+                                        </fieldset>
+                                    </form>
+                                    <form class="form-horizontal hide form_hide" id="fr_3" action="/" method="POST">
+                                        <fieldset>
+                                            <legend>Circunferências</legend>
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label">Campo 1</label>
+                                                <div class="col-md-8">
+                                                    <input type="email" class="form-control" placeholder="Campo 1" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label">Campo 2</label>
+                                                <div class="col-md-8">
+                                                    <input type="password" class="form-control" placeholder="Campo 1" />
+                                                </div>
+                                            </div>
+
+
+                                        </fieldset>
+                                    </form>
+
+                                    <form class="form-horizontal hide form_hide" id="fr_4" action="/" method="POST">
+                                        <fieldset>
+                                            <legend>Neuromotor</legend>
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label">Campo 1</label>
+                                                <div class="col-md-8">
+                                                    <input type="email" class="form-control" placeholder="Campo 1" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label">Campo 2</label>
+                                                <div class="col-md-8">
+                                                    <input type="password" class="form-control" placeholder="Campo 1" />
+                                                </div>
+                                            </div>
+
+
+                                        </fieldset>
+                                    </form>
+                                    <form class="form-horizontal hide form_hide" id="fr_5" action="/" method="POST">
+                                        <fieldset>
+                                            <legend>Desvio Postural</legend>
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label">Campo 1</label>
+                                                <div class="col-md-8">
+                                                    <input type="email" class="form-control" placeholder="Campo 1" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label">Campo 2</label>
+                                                <div class="col-md-8">
+                                                    <input type="password" class="form-control" placeholder="Campo 1" />
+                                                </div>
+                                            </div>
+
+                                        </fieldset>
+                                    </form>
+                                    <form class="form-horizontal hide form_hide" id="fr_6" action="/" method="POST">
+                                        <fieldset>
+                                            <legend>Press. Arterial/Pulsação</legend>
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label">Campo 1</label>
+                                                <div class="col-md-8">
+                                                    <input type="email" class="form-control" placeholder="Campo 1" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label">Campo 2</label>
+                                                <div class="col-md-8">
+                                                    <input type="password" class="form-control" placeholder="Campo 1" />
+                                                </div>
+                                            </div>
+
+
+                                        </fieldset>
+                                    </form>
+
+                                    <form class="form-horizontal hide form_hide" id="fr_7" action="/" method="POST">
+                                        <fieldset>
+                                            <legend>Metas E Envio de Avaliação</legend>
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label ">Email de Envio</label>
+                                                <div class="col-md-8">
+                                                    <input type="email" id="email_send" class="form-control disabled" readonly placeholder="gabrielalfa@gmail.com" />
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <input type="checkbox" id="check_email" class="checkbox pull-right" name="name" value="mudar email" />
+                                                    <label class="col-md-4 control-label pull-right">Modificar Email</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label">Campo 2</label>
+                                                <div class="col-md-8">
+                                                    <input type="password" class="form-control" placeholder="Campo 1" />
+                                                </div>
+                                            </div>
+
+
+                                        </fieldset>
+                                    </form>
+
+
+
+                                </div>
+                            </div>
+                            <!-- end col-9 -->
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                        <a href="javascript:;" class="btn btn-sm btn-white" data-dismiss="modal">Cancelar</a>
+                        <a href="/Avaliacoes/Impressao" target="_blank" class=" btn btn-sm btn-primary" >Imprimir</a>
+                        <a href="javascript:;" class="btn btn-sm btn-success" data-dismiss="modal">Enviar Email</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- #modal-alert -->
+        <div class="modal fade" id="modal-email">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">Confirmação de Envio</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert alert-info m-b-0">
+                            <h4><i class="fa fa-info-circle"></i> Confirmação</h4>
+                            <p>Deseja enviar email para: <b>gabrielalfa@gmail.com</b></p>
+                            <p>Neste email ira conter o pdf da última avaliação, comparativos com avaliações anteriores e data de reavaliação.</p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                       <p >Deseja enviar?</p>
+                        <a href="javascript:;" class="btn btn-sm btn-primary" data-dismiss="modal">Enviar email</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- #FIM MODAL AREA -->
+    <!-- ================== BEGIN BASE JS ================== -->
+    <script src="/Scripts/plugins/jquery/jquery-1.9.1.min.js"></script>
+    <script src="/Scripts/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+    <script src="/Scripts/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
+    <script src="/Scripts/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+        <script src="assets/crossbrowserjs/html5shiv.js"></script>
+        <script src="assets/crossbrowserjs/respond.min.js"></script>
+        <script src="assets/crossbrowserjs/excanvas.min.js"></script>
+    <![endif]-->
+    <script src="/Scripts/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="/Scripts/plugins/jquery-cookie/jquery.cookie.js"></script>
+    <!-- ================== END BASE JS ================== -->
+    <!-- ================== BEGIN PAGE LEVEL JS ================== -->
+    <script src="/Scripts/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="/Scripts/plugins/ionRangeSlider/js/ion-rangeSlider/ion.rangeSlider.min.js"></script>
+    <script src="/Scripts/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+    <script src="/Scripts/plugins/masked-input/masked-input.min.js"></script>
+    <script src="/Scripts/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+    <script src="/Scripts/plugins/password-indicator/js/password-indicator.js"></script>
+    <script src="/Scripts/plugins/bootstrap-combobox/js/bootstrap-combobox.js"></script>
+    <script src="/Scripts/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="/Scripts/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+    <script src="/Scripts/plugins/bootstrap-tagsinput/bootstrap-tagsinput-typeahead.js"></script>
+    <script src="/Scripts/plugins/jquery-tag-it/js/tag-it.min.js"></script>
+    <script src="/Scripts/plugins/bootstrap-daterangepicker/moment.js"></script>
+    <script src="/Scripts/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="/Scripts/plugins/select2/dist/js/select2.min.js"></script>
+    <script src="/Scripts/js/form-plugins.demo.min.js"></script>
+    <script src="/Scripts/js/apps.min.js"></script>
+    <!-- ================== END PAGE LEVEL JS ================== -->
+
+    <script>
+        $(document).ready(function () {
+            App.init();
+            FormPlugins.init();
+        });
+    </script>
+
+
+
+    <script>
+    $(document).ready(function () {
+        $("#check_email").click(function () {
+            if ($('email_send').attr('readonly') == 'readonly') {
+                $("#email_send").remove("disabled");
+                $("#email_send").removeAttr("readonly");
+            }
+            else
+            {
+                $("#email_send").addClass("disabled");
+                $("#email_send").attr('readonly', true);
+
+            }
+
+
+
+        });
+    });
+
+    </script>
+
+
+    <script>
+    $(document).ready(function () {
+        $("#add_ava").click(function () {
+                $("#fr_1").addClass("hide");
+                $("#fr_2").addClass("hide");
+                $("#fr_3").addClass("hide");
+                $("#fr_4").addClass("hide");
+                $("#fr_5").addClass("hide");
+                $("#fr_6").addClass("hide");
+                $("#fr_7").addClass("hide");
+        });
+    });
+
+    </script>
+
+
+
+
+    <script>
+        $(document).ready(function () {
+            $(".tr_linha").click(function () {
+                $(".tr_linha").removeClass("active");
+                $(this).addClass("active");
+            });
+        });
+    </script>
+
+
+
+    <script>
+        $(document).ready(function () {
+            $(".tr_nome").click(function () {
+
+                var idd = '#i' + $(this).attr('id');
+
+                if ($(idd).is(":visible")) {
+                    $("tr").removeClass("active");
+                    $(idd).toggle(1000);
+                } else {
+                    $("tr").removeClass("active");
+                    $(this).addClass("active");
+                    $(".espera").addClass("hide");
+                    $(idd).toggle(1000);
+                    $(idd).removeClass("hide");
+                }
+            });
+        });
+    </script>
+
+
+    <script>
+    $(document).ready(function () {
+        $(".li_hide_modal").click(function () {
+
+            var idd = $(this).attr('id');
+
+            if (idd == "0") {
+                $("#fr_1").addClass("hide");
+                $("#fr_2").addClass("hide");
+                $("#fr_3").addClass("hide");
+                $("#fr_4").addClass("hide");
+                $("#fr_5").addClass("hide");
+                $("#fr_6").addClass("hide");
+                $("#fr_7").addClass("hide");
+                $("#fr_0").toggle();
+                $("#fr_0").fadeIn(1000);
+                $("#fr_0").removeClass("hide");
+            }
+            if (idd == "1") {
+                $("#fr_0").addClass("hide");
+                $("#fr_2").addClass("hide");
+                $("#fr_3").addClass("hide");
+                $("#fr_4").addClass("hide");
+                $("#fr_5").addClass("hide");
+                $("#fr_6").addClass("hide");
+                $("#fr_7").addClass("hide");
+                $("#fr_1").toggle();
+                $("#fr_1").fadeIn(1000);
+                $("#fr_1").removeClass("hide");
+            }
+            if (idd == "2") {
+                $("#fr_0").addClass("hide");
+                $("#fr_2").fadeIn(1000);
+                $("#fr_2").toggle();
+                $("#fr_2").removeClass("hide");
+                $("#fr_4").addClass("hide");
+                $("#fr_5").addClass("hide");
+                $("#fr_6").addClass("hide");
+                $("#fr_3").addClass("hide");
+                $("#fr_1").addClass("hide");
+                $("#fr_7").addClass("hide");
+            }
+            if (idd == "3") {
+                $("#fr_0").addClass("hide");
+                $("#fr_2").addClass("hide");
+                $("#fr_7").addClass("hide");
+                $("#fr_4").addClass("hide");
+                $("#fr_5").addClass("hide");
+                $("#fr_6").addClass("hide");
+                $("#fr_3").fadeIn(1000);
+                $("#fr_3").toggle();
+                $("#fr_3").removeClass("hide");
+                $("#fr_1").addClass("hide");
+            }
+
+            //sdssddsd
+
+            if (idd == "4") {
+                $("#fr_0").addClass("hide");
+                $("#fr_2").addClass("hide");
+                $("#fr_3").addClass("hide");
+                $("#fr_1").addClass("hide");
+                $("#fr_7").addClass("hide");
+                $("#fr_5").addClass("hide");
+                $("#fr_6").addClass("hide");
+                $("#fr_4").toggle();
+                $("#fr_4").fadeIn(1000);
+                $("#fr_4").removeClass("hide");
+            }
+            if (idd == "5") {
+                $("#fr_0").addClass("hide");
+                $("#fr_4").addClass("hide");
+                $("#fr_2").addClass("hide");
+                $("#fr_6").addClass("hide");
+                $("#fr_5").fadeIn(1000);
+                $("#fr_5").toggle();
+                $("#fr_5").removeClass("hide");
+                $("#fr_3").addClass("hide");
+                $("#fr_1").addClass("hide");
+                $("#fr_7").addClass("hide");
+            }
+            if (idd == "6") {
+                $("#fr_0").addClass("hide");
+                $("#fr_2").addClass("hide");
+                $("#fr_6").fadeIn(1000);
+                $("#fr_6").toggle();
+                $("#fr_4").addClass("hide");
+                $("#fr_5").addClass("hide");
+                $("#fr_3").addClass("hide");
+                $("#fr_6").removeClass("hide");
+                $("#fr_1").addClass("hide");
+                $("#fr_7").addClass("hide");
+            }
+            if (idd == "7") {
+                $("#fr_0").addClass("hide");
+                $("#fr_2").addClass("hide");
+                $("#fr_7").fadeIn(1000);
+                $("#fr_7").toggle();
+                $("#fr_4").addClass("hide");
+                $("#fr_5").addClass("hide");
+                $("#fr_3").addClass("hide");
+                $("#fr_7").removeClass("hide");
+                $("#fr_1").addClass("hide");
+                $("#fr_6").addClass("hide");
+            }
+
+
+        });
+    });
+    </script>
+
+
+
+
+
+
+
+</body>
+</html>
